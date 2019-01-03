@@ -1,7 +1,7 @@
 # Export users logins residing in an OU and outputs to .csv file using csvde
 
 
-'''
+```
 #Define the OU we're looking in (-d) and output to file (-f)
 csvde -d "ou=Finance,ou=users,ou=Kingston,dc=meridian,dc=local" -f .\users.csv
 
@@ -11,4 +11,4 @@ Import-Csv .\users.csv | select UserPrincipalName | Export-Csv -Path .\output.cs
 #Simple "press any key to continue" prompt
 Write-Host "Press any key to continue ..."
 $x = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
-'''
+```
