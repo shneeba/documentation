@@ -22,7 +22,7 @@ Once we're in and confirmed the key is working we can log back out.
 exit
 ```
 
-On our primary domain controller we can run the below command as a dry run to make sure that we're able to copy the sysvol folder.
+On our primary domain controller we can run the below command as a dry run to make sure that we're able to copy the sysvol folder. We're using the -XAavz flags (Xtended attributes, Acls, archive, verbose, z(compress))
 ```
 rsync --dry-run -XAavz --chmod=775 --delete-after  --progress --stats  /usr/local/samba/var/locks/sysvol/ root@tobiasdc02:/usr/local/samba/var/locks/sysvol/
 ```
@@ -32,7 +32,7 @@ If this looks correct then remove the --dry-run part
 rsync -XAavz --chmod=775 --delete-after  --progress --stats  /usr/local/samba/var/locks/sysvol/ root@tobiasdc02:/usr/local/samba/var/locks/sysvol/
 ```
 
-Finally add an edit the crontab
+Finally edit the crontab
 ```
 crontab -e
 ```
