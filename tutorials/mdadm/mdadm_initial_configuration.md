@@ -32,3 +32,5 @@ If you want some more detailed info use mdadm
 ```
 mdadm --detail /dev/md0
 ```
+
+You now have a RAID disk available to use.
