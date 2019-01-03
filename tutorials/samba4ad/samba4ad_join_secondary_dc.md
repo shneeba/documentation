@@ -70,6 +70,28 @@ List Kerberos tickets to be sure
 klist
 ```
 
+Add the Samba AD ports to your firewalld config
+```
+firewall-cmd --add-port=53/tcp --permanent;firewall-cmd --add-port=53/udp --permanent;firewall-cmd --add-port=88/tcp --permanent;firewall-cmd --add-port=88/udp --permanent; \
+firewall-cmd --add-port=135/tcp --permanent;firewall-cmd --add-port=137-138/udp --permanent;firewall-cmd --add-port=139/tcp --permanent; \
+firewall-cmd --add-port=389/tcp --permanent;firewall-cmd --add-port=389/udp --permanent;firewall-cmd --add-port=445/tcp --permanent; \
+firewall-cmd --add-port=464/tcp --permanent;firewall-cmd --add-port=464/udp --permanent;firewall-cmd --add-port=636/tcp --permanent; \
+firewall-cmd --add-port=1024-5000/tcp --permanent;firewall-cmd --add-port=3268-3269/tcp --permanent
+```
+
+*----- Optional -----*
+
+Disable the firewalld service as this stops communication to your ADDC if you're having issues with firewall ports or firewalld
+```
+systemctl stop firewalld
+```
+
+Check to make sure it's stopped with
+```
+systemctl status firewalld
+```
+*----- Optional -----*
+
 ### Joining secondary DC to domain
 
 Run the below command to join the domain using the domain administrator user
