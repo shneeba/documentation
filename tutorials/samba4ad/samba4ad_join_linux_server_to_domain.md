@@ -1,4 +1,4 @@
-# Joining Centos7 server to domain**
+# Joining Centos7 server to domain
 
 ### Prepping the server
 
@@ -62,8 +62,9 @@ Template Shell = /bin/bash
 _----- Optional -----_
 
 We can join the domain without a GUI utility, however this can be prone to typos ect
-
+```
 authconfig --enablewinbind --enablewinbindauth --smbsecurity ads --smbworkgroup=TOBIAS --smbrealm TOBIAS.LOCAL --smbservers=tobiasdc01.tobias.local,tobiasdc02.tobias.local --krb5realm=TOBIAS.LOCAL --enablewinbindoffline --enablewinbindkrb5 --winbindtemplateshell=/bin/bash--winbindjoin=Administrator --update  --enablelocauthorize   --savebackup=/backups
+```
 
 _----- Optional -----_
 
